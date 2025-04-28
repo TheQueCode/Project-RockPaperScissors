@@ -8,3 +8,6 @@ declare winner
 */
 
 
+function getComputerChoice(){
+
+}
