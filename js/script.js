@@ -1,22 +1,21 @@
-const humanScore = 0;
-const computerScore = 0;
 
-function getComputerchoice(){
-  const computerChoice = Math.floor(Math.random() * 3 + 1);
-  if (computerChoice === 1){
-    console.log("Rock");
-  } else if (computerChoice === 2){
-    console.log("Paper");
+
+function getComputerChoice(){
+  const computerPick = Math.floor(Math.random() * 3 + 1);
+  if (computerPick === 3){
+    const computerChoice = 'rock';
+    console.log(computerChoice);
+    return computerChoice;
+  } else if (computerPick === 2){
+    const computerChoice = 'paper';
+    console.log(computerChoice);
+    return computerChoice;
   } else {
-    console.log("Scissors");
+    const computerChoice = 'scissors';
+    console.log(computerChoice);
+    return computerChoice;  
   }
 }
 
-getComputerchoice();
+getComputerChoice();
 
-function getHumanChoice(){
-  const humanChoice = prompt("Enter Rock, Paper, or Scissors")
-  console.log(humanChoice);
-}
-
-getHumanChoice();
