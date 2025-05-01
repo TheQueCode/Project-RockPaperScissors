@@ -1,21 +1,22 @@
 
 
 function getComputerChoice(){
-  const computerPick = Math.floor(Math.random() * 3 + 1);
-  if (computerPick === 3){
-    const computerChoice = 'rock';
+  let computerChoice;
+  const computerNum = Math.floor(Math.random() * 3 + 1);
+
+  if(computerNum === 1){
+    computerChoice = 'rock';
     console.log(computerChoice);
     return computerChoice;
-  } else if (computerPick === 2){
-    const computerChoice = 'paper';
+  } else if (computerNum === 2){
+    computerChoice = 'paper';
     console.log(computerChoice);
     return computerChoice;
   } else {
-    const computerChoice = 'scissors';
+    computerChoice = 'scissors';
     console.log(computerChoice);
-    return computerChoice;  
-  }
-}
+    return computerChoice;
+  } 
+};
 
 getComputerChoice();
-
