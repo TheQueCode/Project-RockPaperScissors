@@ -20,3 +20,11 @@ function getComputerChoice(){
 };
 
 getComputerChoice();
+
+function getHumanChoice(){
+  const humanChoice = prompt("Enter your choice: Rock, Paper, Scissors")
+  console.log(humanChoice);
+};
+
+getHumanChoice();
+
