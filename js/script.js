@@ -1,4 +1,11 @@
-function getComputerChoice(){
+const rockBtn = document.querySelector('.rockBtn').addEventListener('click', () => console.log('Rock'));
+
+const paperBtn = document.querySelector('.paperBtn').addEventListener('click', () => console.log('Paper'));
+
+const scissorsBtn = document.querySelector('.scissorsBtn').addEventListener('click', () => console.log('Scissors'));
+
+function getComputerChoice ()
+{
   let computerChoice;
   const computerNum = Math.floor(Math.random() * 3 + 1);
 
@@ -13,11 +20,12 @@ function getComputerChoice(){
     return computerChoice;
   } 
 };
-
+/*
 function getHumanChoice(){
   const humanChoice = prompt("Enter your choice: Rock, Paper, Scissors")
   return humanChoice;
 };
+*/
 
 function playGame(){
   let humanScore = 0;
@@ -44,12 +52,13 @@ function playGame(){
     console.log(`Computer Score: ${computerScore}`);
     console.log(`Your Score: ${humanScore}`);
   };
-
+/*
   for (let i = 1; humanScore + computerScore < 5; i++){
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
+*/
 
   if (humanScore > computerScore) {
     console.log(`You've won best out of five!`);
