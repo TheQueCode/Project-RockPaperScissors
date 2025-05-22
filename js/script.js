@@ -1,71 +1,70 @@
-const rockBtn = document.querySelector('.rockBtn').addEventListener('click', () => console.log('Rock'));
+let humanScore = 0;
+let computerScore = 0;
 
-const paperBtn = document.querySelector('.paperBtn').addEventListener('click', () => console.log('Paper'));
+document.querySelector('.rockBtn').addEventListener('click', () => getComputerChoice('Rock'));
+  
+document.querySelector('.paperBtn').addEventListener('click', () => getComputerChoice('Paper'));
 
-const scissorsBtn = document.querySelector('.scissorsBtn').addEventListener('click', () => console.log('Scissors'));
+document.querySelector('.scissorsBtn').addEventListener('click', () => getComputerChoice('Scissors'));
 
-function getComputerChoice ()
+function getComputerChoice (humanChoice)
 {
   let computerChoice;
   const computerNum = Math.floor(Math.random() * 3 + 1);
 
   if(computerNum === 1){
     computerChoice = 'Rock';
-    return computerChoice;
   } else if (computerNum === 2){
     computerChoice = 'Paper';
-    return computerChoice;
   } else {
     computerChoice = 'Scissors';
-    return computerChoice;
   } 
-};
-/*
-function getHumanChoice(){
-  const humanChoice = prompt("Enter your choice: Rock, Paper, Scissors")
-  return humanChoice;
-};
-*/
+  playGame(humanChoice, computerChoice);
+}
 
-function playGame(){
-  let humanScore = 0;
-  let computerScore = 0;
+function playGame (humanChoice, computerChoice)
+{
+  console.log(`Computer's Pick: ${computerChoice}`);
+  console.log(`Player's Pick: ${humanChoice}`);
+  playRound(humanChoice, computerChoice);
 
-  function playRound(humanChoice, computerChoice){
-    const plainChoice = humanChoice.toLowerCase();
-    const plainComputerChoice = computerChoice.toLowerCase();
-    const fancyChoice = plainChoice[0].toUpperCase() + plainChoice.slice(1);
+  function playRound (humanChoice, computerChoice)
+  {
 
-    if (plainChoice === plainComputerChoice){
+    if (humanChoice === computerChoice) {
       console.log("Tie! Try again.");
     } else if (
-      plainComputerChoice === 'rock' && plainChoice === 'scissors' ||
-      plainComputerChoice === 'paper' && plainChoice === 'rock' ||
-      plainComputerChoice === 'scissors' && plainChoice === 'paper'
-    ){
+      computerChoice === 'Rock' && humanChoice === 'Scissors' ||
+      computerChoice === 'Paper' && humanChoice === 'Rock' ||
+      computerChoice === 'Scissors' && humanChoice === 'Paper'
+    ) {
       computerScore++;
-      console.log(`You lost! ${computerChoice} beats ${fancyChoice}. Try again.`);
+      console.log(`You lost! ${computerChoice} beats ${humanChoice}. Try again.`);
     } else {
       humanScore++;
-      console.log(`Congratulations! You won! ${fancyChoice} beats ${computerChoice}`);
+      console.log(`You won! ${humanChoice} beats ${computerChoice}`);
     }
     console.log(`Computer Score: ${computerScore}`);
     console.log(`Your Score: ${humanScore}`);
-  };
-/*
-  for (let i = 1; humanScore + computerScore < 5; i++){
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-*/
 
-  if (humanScore > computerScore) {
-    console.log(`You've won best out of five!`);
-  } else {
-    console.log(`Oh no! You lost best out of five! Try again.`);
+    if (humanScore === 3 || computerScore === 3) {
+      const winner = humanScore > computerScore ? 'Congratulations! You won best out of 5!' : 'Oops! You lost best out of 5! Try again.'
+      console.log(winner);
+      resetGame();
+    }
   }
-};
+}
 
-playGame();
+function resetGame ()
+{
+  humanScore = 0;
+  computerScore = 0;
+  console.log('Match reset. Play Again!');
+}
+
+
+
+
+
+
 
